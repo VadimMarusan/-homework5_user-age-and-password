@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    function createNewUser () {
+        let firstName = prompt("введите имя");
+        let lastName = prompt("введите фамилию");
+        let birthday = prompt("введите дату рождения", "dd.mm.yyyy");
+        const currentYear = (new Date()).getFullYear();
+
+        let newUser = {
+            firstName: firstName,
+            lastName: lastName,
+            nickName: function getLogin () {
+                return this.nickName = firstName.toLocaleLowerCase().slice(0,1) + lastName.toLocaleLowerCase();
+
+            },
+            userAge: function getAge () {
+                return this.userAge = currentYear - birthday.slice(6);
+            },
+            userPassword: function getPassword () {
+                return this.userPassword = firstName.toLocaleUpperCase().slice(0,1) + lastName.toLocaleLowerCase() + birthday.slice(6);
+            }
+        }
+        return newUser;
+    }
+    let obj = createNewUser();
+    console.log(obj);
+    console.log(obj.nickName(),obj.userAge(), obj.userPassword())
+</script>
+</body>
+</html>
+
